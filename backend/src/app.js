@@ -16,8 +16,11 @@ app.use(express.json()); //send json files
 
 // routes
 
-app.get('/api/users', (req, res) => res.send('users routes')) ///api/users (backend-api)
-app.get('/api/notes', (req, res) => res.send('notes routes'))
+//app.get('/api/users', (req, res) => res.send('users routes')) ///api/users (backend-api)
+//app.get('/api/notes', (req, res) => res.send('notes routes'))
+
+app.use('/api/notes', require('./routes/notes'));
+app.use('/api/users', require('./routes/users'));
 
 module.exports = app;
 
