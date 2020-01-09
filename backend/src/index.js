@@ -1,3 +1,5 @@
+require('dotenv').config();  //before the application starts the variable starts .env
+
 const app = require('./app');
 require('./database');
 

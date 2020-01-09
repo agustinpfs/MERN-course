@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 
-const URI = 'mongodb://localhost/mernstack';
+
+const URI = process.env.MONGOOSE_URI
+    ? process.env.MONGOOSE_URI
+    : 'mongodb://localhost/merndatabase';
 
 
 mongoose.connect(URI, {
