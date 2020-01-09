@@ -16,8 +16,8 @@ app.use(express.json()); //send json files
 
 // routes
 
-app.get('/users', (req, res) => res.send('users routes'))
-app.get('/notes', (req, res) => res.send('notes routes'))
+app.get('/api/users', (req, res) => res.send('users routes')) ///api/users (backend-api)
+app.get('/api/notes', (req, res) => res.send('notes routes'))
 
 module.exports = app;
 
