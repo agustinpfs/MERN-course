@@ -23,11 +23,28 @@ export default class CreateUser extends Component {
             username: e.target.value   //e.target.value shows the value of what is being typed
         })
     }
-   
+
+    onSubmit = async (e) => {
+        e.preventDefault(); //cansel reset
+        await axios.post('http://localhost:4000/api/users', {
+            username: this.state.username
+        });
+        this.setState({ username: '' });
+        this.getUsers();
+    }
+
+    deleteUser = async (userId) => {
+        const response = window.confirm('are you sure you want to delete it?');
+        if (response) {
+            await axios.delete('http://localhost:4000/api/users/' + userId);
+            this.getUsers();
+        }
+    }
+
 
     render() {
         return (
-             <div className="row">
+            <div className="row">
                 <div className="col-md-4">
                     <div className="card card-body">
                         <h3>Create New User</h3>
@@ -42,7 +59,7 @@ export default class CreateUser extends Component {
                             </div>
                             <button type="submit" className="btn btn-primary">
                                 Save
-                    </button>
+                            </button>
                         </form>
                     </div>
                 </div>
