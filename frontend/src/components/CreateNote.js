@@ -64,7 +64,7 @@ export default class CreateNote extends Component {
 
     onInputChange = (e) => {
         this.setState({
-            [e.target.name]: e.target.value   //input info - e.target.name->depending on the name will use a data
+            [e.target.name]: e.target.value   //input info - e.target.name->depending on the name use a data
         })
     }
 
